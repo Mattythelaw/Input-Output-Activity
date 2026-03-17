@@ -4,10 +4,12 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Switch
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SwitchCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
@@ -23,11 +25,25 @@ class MainActivity : AppCompatActivity() {
         val nameTxtField = findViewById<EditText>(R.id.Nametext)
 
         clickMeButton?.setOnClickListener {
-            Toast.makeText(this@MainActivity,
-                "Button clicked" , Toast.LENGTH_LONG).show()
+            Toast.makeText(
+                this@MainActivity,
+                "Button clicked", Toast.LENGTH_LONG
+            ).show()
 
-        welcomeTxt.text = "Welcome, ${nameTxtField.text}!"
+            welcomeTxt.text = "Welcome, ${nameTxtField.text}!"
         }
+        val zuluSwitch = findViewById<Switch>(R.id.zuluSwitch)
+
+            clickMeButton?.setOnClickListener {
+                var greeting: String
+                if (zuluSwitch.isChecked) {
+                   greeting = "Sawubona, ${nameTxtField.text}!"
+                } else {
+                    greeting = "Greetings, ${nameTxtField.text}!"
+                }
+                welcomeTxt.text = greeting
+            }
+
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
