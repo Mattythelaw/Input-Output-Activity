@@ -14,6 +14,15 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
 class MainActivity : AppCompatActivity() {
+    enum class languages {
+        ENGLISH,
+        AFRIKAANS,
+        SPANISH,
+        XHOSA,
+        ZULU,
+        TSWANA,
+        SOTHO,
+    } 
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,20 +32,21 @@ class MainActivity : AppCompatActivity() {
         val clickMeButton = findViewById<Button>(R.id.clickBtn)
         val welcomeTxt = findViewById<TextView>(R.id.Hellotext)
         val nameTxtField = findViewById<EditText>(R.id.Nametext)
+        val zuluSwitch = findViewById<Switch>(R.id.zuluSwitch)
 
         clickMeButton?.setOnClickListener {
-            Toast.makeText(
-                this@MainActivity,
-                "Button clicked", Toast.LENGTH_LONG
-            ).show()
+
+            Toast.makeText(this@MainActivity, "Button clicked",
+                Toast.LENGTH_LONG
+                    ).show()
 
             welcomeTxt.text = "Welcome, ${nameTxtField.text}!"
         }
-        val zuluSwitch = findViewById<Switch>(R.id.zuluSwitch)
-
-            clickMeButton?.setOnClickListener {
-                var greeting: String
-                if (zuluSwitch.isChecked) {
+        clickMeButton?.setOnClickListener {
+            var greeting: String
+            val zulu: Boolean = zuluSwitch.isChecked
+            val age: Int = 20
+            if (zuluSwitch.isChecked) {
                    greeting = "Sawubona, ${nameTxtField.text}!"
                 } else {
                     greeting = "Greetings, ${nameTxtField.text}!"
