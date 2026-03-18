@@ -62,4 +62,11 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:visibility="visible" />
 
+    <Spinner
+        android:id="@+id/languageSpinner"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="267dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

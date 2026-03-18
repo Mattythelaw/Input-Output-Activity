@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Spinner
 import android.widget.Switch
 import android.widget.TextView
 import android.widget.Toast
@@ -22,37 +23,40 @@ class MainActivity : AppCompatActivity() {
         ZULU,
         TSWANA,
         SOTHO,
-    } 
+    }
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
+//Assigning values activity main
         val clickMeButton = findViewById<Button>(R.id.clickBtn)
         val welcomeTxt = findViewById<TextView>(R.id.Hellotext)
         val nameTxtField = findViewById<EditText>(R.id.Nametext)
         val zuluSwitch = findViewById<Switch>(R.id.zuluSwitch)
+        val languageSpinner = findViewById<Spinner>(R.id.languageSpinner)
 
-        clickMeButton?.setOnClickListener {
-
-            Toast.makeText(this@MainActivity, "Button clicked",
-                Toast.LENGTH_LONG
-                    ).show()
-
-            welcomeTxt.text = "Welcome, ${nameTxtField.text}!"
-        }
-        clickMeButton?.setOnClickListener {
-            var greeting: String
-            val zulu: Boolean = zuluSwitch.isChecked
-            val age: Int = 20
-            if (zuluSwitch.isChecked) {
-                   greeting = "Sawubona, ${nameTxtField.text}!"
-                } else {
-                    greeting = "Greetings, ${nameTxtField.text}!"
-                }
-                welcomeTxt.text = greeting
-            }
+//        clickMeButton?.setOnClickListener {
+//
+//            Toast.makeText(this@MainActivity, "Button clicked",
+//                Toast.LENGTH_LONG
+//                    ).show()
+//
+//            welcomeTxt.text = "Welcome, ${nameTxtField.text}!"
+//
+//        }
+//        clickMeButton?.setOnClickListener {
+//            var greeting: String
+//            val zulu: Boolean = zuluSwitch.isChecked
+//            val age: Int = 20
+//            if (zuluSwitch.isChecked) {
+//                   greeting = "Sawubona, ${nameTxtField.text}!"
+//                } else {
+//                    greeting = "Greetings, ${nameTxtField.text}!"
+//                }
+//                welcomeTxt.text = greeting
+//            }
 
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
